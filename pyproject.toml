@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lmfit"
+version = "0.1.0"
+description = "Find the biggest local LLM that actually fits your hardware, and the breakeven where self-hosting beats the API."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "Victor" }]
+keywords = [
+  "llm", "local-llm", "ollama", "lm-studio", "llama.cpp",
+  "vram", "gpu", "self-hosting", "breakeven", "cost", "open-source",
+]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Topic :: Utilities",
+  "Environment :: Console",
+]
+# Zero required dependencies. psutil / rich are optional niceties.
+dependencies = []
+
+[project.optional-dependencies]
+psutil = ["psutil>=5.9"]
+rich = ["rich>=12.0"]
+dev = ["pytest>=7.0"]
+
+[project.scripts]
+lmfit = "lmfit.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/lmfit/lmfit"
+Repository = "https://github.com/lmfit/lmfit"
+Issues = "https://github.com/lmfit/lmfit/issues"
+
+[tool.setuptools]
+packages = ["lmfit"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
